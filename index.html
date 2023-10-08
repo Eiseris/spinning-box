@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Untitled Page</title>
+        <style>
+            html,body{
+                height:100%;
+            }
+            #container
+            {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+            }
+            #rotating-box
+            {
+                height: 100px;
+                width: 100px;
+                border: 1px solid black;
+            }
+        </style>
     </head>
-    
-    <body style = "background-color: gray">
-        <h1 style = "font-size: 36px ">I don't know</h1>
-        
-        <ul>
-            <li style = "color: green"><strong><em> No</em></strong></li>
-            <li style = "color: purple"><em> No</em></li>
-            <li style = "color: yellow"> No</li>
-            <li style = "color: blue"> No</li>
-            <li style = "color: red"> No</li>
-                
-        </ul>
+
+    <body>
+        <div id = container>
+            <div id = rotating-box></div>
+        </div>
+        <script>
+            function rotate() {
+                var box = document.getElementById('rotating-box');
+                var rotation = 0;
+
+                var interval = setInterval(function() {
+                rotation += 1;
+                box.style.transform = 'rotate(' + rotation + 'deg)';
+            }, 16); 
+            setTimeout(function() {
+                clearInterval(interval);
+                }, 5000);
+            }
+            rotate();
+        </script>
     </body>
 </html>
